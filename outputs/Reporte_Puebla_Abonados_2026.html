@@ -183,6 +183,12 @@
 
   .small { font-size: 11px; opacity: 0.7; }
 
+  /* INLINE META junto al título */
+  .meta-inline {
+    font-size: 12px; font-weight: 500; color: var(--text-3);
+    margin-left: 4px; letter-spacing: 0.1px;
+  }
+
   /* FILTER PILLS */
   .filter-group { display: inline-flex; gap: 2px; background: var(--bg-input); border-radius: 99px; padding: 3px; align-self: center; }
   .filter-group button {
@@ -411,55 +417,52 @@
 </section>
 
 <section id="t1">
-  <div class="section-header">
-    <h2>Torneo AP23 + CL24</h2>
-    <div class="section-sub">Cuánto se vendió y qué se emitió en este torneo. Desglose por categoría, zona y canal.</div>
+  <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;">
+    <div>
+      <h2>Torneo AP23 + CL24</h2>
+      <div class="section-sub">Cuánto se vendió y qué se emitió en este torneo. Filtra por semestre para ver solo Apertura o Clausura.</div>
+    </div>
+    <div class="filter-group" id="filterSem_t1" style="margin-bottom: 8px;">
+      <button class="active" data-sem="total">Total del torneo</button>
+      <button data-sem="AP23">AP23</button>
+      <button data-sem="CL24">CL24</button>
+    </div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi featured">
       <div class="kpi-label">Revenue vendido</div>
-      <div class="kpi-value">$10.55M</div>
-      <div class="kpi-sub">Primer torneo del comparativo</div>
+      <div class="kpi-value" id="kpiRev_t1">$10.55M</div>
+      <div class="kpi-sub" id="kpiRevSub_t1">Primer torneo del comparativo</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Abonos emitidos</div>
-      <div class="kpi-value">7,949</div>
-      <div class="kpi-sub">—</div>
+      <div class="kpi-value" id="kpiVol_t1">7,949</div>
+      <div class="kpi-sub" id="kpiVolSub_t1">—</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Ticket promedio</div>
-      <div class="kpi-value">$1,861</div>
+      <div class="kpi-value" id="kpiTicket_t1">$1,861</div>
       <div class="kpi-sub">excluyendo cortesías</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Cortesías</div>
-      <div class="kpi-value">2,280</div>
-      <div class="kpi-sub">28.7% del volumen</div>
+      <div class="kpi-value" id="kpiCort_t1">2,280</div>
+      <div class="kpi-sub" id="kpiCortSub_t1">28.7% del volumen</div>
     </div>
   </div>
 
-  <!-- Categoría: revenue + volumen, con filtro AP/CL -->
+  <!-- Categoría: revenue + volumen — el filtro de arriba controla todo -->
   <div class="grid-2">
     <div class="card">
       <div class="card-header">
-        <h3>Revenue por categoría</h3>
-        <div class="filter-group" id="filterCatRev_t1">
-          <button class="active" data-sem="total">Total</button>
-          <button data-sem="AP23">AP23</button>
-          <button data-sem="CL24">CL24</button>
-        </div>
+        <h3>Revenue por categoría <span class="meta-inline" id="labelCatRev_t1">— Total del torneo</span></h3>
       </div>
       <div class="chart-wrap tall"><canvas id="chCatRev_t1"></canvas></div>
     </div>
     <div class="card">
       <div class="card-header">
-        <h3>Abonos emitidos por categoría</h3>
-        <div class="filter-group" id="filterCatVol_t1">
-          <button class="active" data-sem="total">Total</button>
-          <button data-sem="AP23">AP23</button>
-          <button data-sem="CL24">CL24</button>
-        </div>
+        <h3>Abonos emitidos por categoría <span class="meta-inline" id="labelCatVol_t1">— Total del torneo</span></h3>
       </div>
       <div class="chart-wrap tall"><canvas id="chCatVol_t1"></canvas></div>
     </div>
@@ -507,55 +510,52 @@
 </section>
 
 <section id="t2">
-  <div class="section-header">
-    <h2>Torneo AP24 + CL25</h2>
-    <div class="section-sub">Cuánto se vendió y qué se emitió en este torneo. Desglose por categoría, zona y canal.</div>
+  <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;">
+    <div>
+      <h2>Torneo AP24 + CL25</h2>
+      <div class="section-sub">Cuánto se vendió y qué se emitió en este torneo. Filtra por semestre para ver solo Apertura o Clausura.</div>
+    </div>
+    <div class="filter-group" id="filterSem_t2" style="margin-bottom: 8px;">
+      <button class="active" data-sem="total">Total del torneo</button>
+      <button data-sem="AP24">AP24</button>
+      <button data-sem="CL25">CL25</button>
+    </div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi featured">
       <div class="kpi-label">Revenue vendido</div>
-      <div class="kpi-value">$8.86M</div>
-      <div class="kpi-sub">-16.0% vs torneo previo</div>
+      <div class="kpi-value" id="kpiRev_t2">$8.86M</div>
+      <div class="kpi-sub" id="kpiRevSub_t2">-16.0% vs torneo previo</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Abonos emitidos</div>
-      <div class="kpi-value">6,407</div>
-      <div class="kpi-sub">-19.4% vs torneo previo</div>
+      <div class="kpi-value" id="kpiVol_t2">6,407</div>
+      <div class="kpi-sub" id="kpiVolSub_t2">-19.4% vs torneo previo</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Ticket promedio</div>
-      <div class="kpi-value">$1,660</div>
+      <div class="kpi-value" id="kpiTicket_t2">$1,660</div>
       <div class="kpi-sub">excluyendo cortesías</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Cortesías</div>
-      <div class="kpi-value">1,072</div>
-      <div class="kpi-sub">16.7% del volumen</div>
+      <div class="kpi-value" id="kpiCort_t2">1,072</div>
+      <div class="kpi-sub" id="kpiCortSub_t2">16.7% del volumen</div>
     </div>
   </div>
 
-  <!-- Categoría: revenue + volumen, con filtro AP/CL -->
+  <!-- Categoría: revenue + volumen — el filtro de arriba controla todo -->
   <div class="grid-2">
     <div class="card">
       <div class="card-header">
-        <h3>Revenue por categoría</h3>
-        <div class="filter-group" id="filterCatRev_t2">
-          <button class="active" data-sem="total">Total</button>
-          <button data-sem="AP24">AP24</button>
-          <button data-sem="CL25">CL25</button>
-        </div>
+        <h3>Revenue por categoría <span class="meta-inline" id="labelCatRev_t2">— Total del torneo</span></h3>
       </div>
       <div class="chart-wrap tall"><canvas id="chCatRev_t2"></canvas></div>
     </div>
     <div class="card">
       <div class="card-header">
-        <h3>Abonos emitidos por categoría</h3>
-        <div class="filter-group" id="filterCatVol_t2">
-          <button class="active" data-sem="total">Total</button>
-          <button data-sem="AP24">AP24</button>
-          <button data-sem="CL25">CL25</button>
-        </div>
+        <h3>Abonos emitidos por categoría <span class="meta-inline" id="labelCatVol_t2">— Total del torneo</span></h3>
       </div>
       <div class="chart-wrap tall"><canvas id="chCatVol_t2"></canvas></div>
     </div>
@@ -600,55 +600,52 @@
 </section>
 
 <section id="t3">
-  <div class="section-header">
-    <h2>Torneo AP25 + CL26</h2>
-    <div class="section-sub">Cuánto se vendió y qué se emitió en este torneo. Desglose por categoría, zona y canal.</div>
+  <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;">
+    <div>
+      <h2>Torneo AP25 + CL26</h2>
+      <div class="section-sub">Cuánto se vendió y qué se emitió en este torneo. Filtra por semestre para ver solo Apertura o Clausura.</div>
+    </div>
+    <div class="filter-group" id="filterSem_t3" style="margin-bottom: 8px;">
+      <button class="active" data-sem="total">Total del torneo</button>
+      <button data-sem="AP25">AP25</button>
+      <button data-sem="CL26">CL26</button>
+    </div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi featured">
       <div class="kpi-label">Revenue vendido</div>
-      <div class="kpi-value">$7.65M</div>
-      <div class="kpi-sub">-13.6% vs torneo previo</div>
+      <div class="kpi-value" id="kpiRev_t3">$7.65M</div>
+      <div class="kpi-sub" id="kpiRevSub_t3">-13.6% vs torneo previo</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Abonos emitidos</div>
-      <div class="kpi-value">6,313</div>
-      <div class="kpi-sub">-1.5% vs torneo previo</div>
+      <div class="kpi-value" id="kpiVol_t3">6,313</div>
+      <div class="kpi-sub" id="kpiVolSub_t3">-1.5% vs torneo previo</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Ticket promedio</div>
-      <div class="kpi-value">$2,211</div>
+      <div class="kpi-value" id="kpiTicket_t3">$2,211</div>
       <div class="kpi-sub">excluyendo cortesías</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Cortesías</div>
-      <div class="kpi-value">2,853</div>
-      <div class="kpi-sub">45.2% del volumen</div>
+      <div class="kpi-value" id="kpiCort_t3">2,853</div>
+      <div class="kpi-sub" id="kpiCortSub_t3">45.2% del volumen</div>
     </div>
   </div>
 
-  <!-- Categoría: revenue + volumen, con filtro AP/CL -->
+  <!-- Categoría: revenue + volumen — el filtro de arriba controla todo -->
   <div class="grid-2">
     <div class="card">
       <div class="card-header">
-        <h3>Revenue por categoría</h3>
-        <div class="filter-group" id="filterCatRev_t3">
-          <button class="active" data-sem="total">Total</button>
-          <button data-sem="AP25">AP25</button>
-          <button data-sem="CL26">CL26</button>
-        </div>
+        <h3>Revenue por categoría <span class="meta-inline" id="labelCatRev_t3">— Total del torneo</span></h3>
       </div>
       <div class="chart-wrap tall"><canvas id="chCatRev_t3"></canvas></div>
     </div>
     <div class="card">
       <div class="card-header">
-        <h3>Abonos emitidos por categoría</h3>
-        <div class="filter-group" id="filterCatVol_t3">
-          <button class="active" data-sem="total">Total</button>
-          <button data-sem="AP25">AP25</button>
-          <button data-sem="CL26">CL26</button>
-        </div>
+        <h3>Abonos emitidos por categoría <span class="meta-inline" id="labelCatVol_t3">— Total del torneo</span></h3>
       </div>
       <div class="chart-wrap tall"><canvas id="chCatVol_t3"></canvas></div>
     </div>
@@ -1296,14 +1293,6 @@ DATA.tournaments.forEach((t, idx) => {
     },
     plugins: [valueLabelPlugin]
   });
-  document.querySelectorAll('#filterCatRev_'+tabId+' button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#filterCatRev_'+tabId+' button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      chCatRev.data.datasets[0].data = cats.map(c => getCatValue(c, btn.dataset.sem, 'revenue'));
-      chCatRev.update();
-    });
-  });
 
   // Volumen por categoría (con filtro AP/CL)
   const chCatVol = new Chart(document.getElementById('chCatVol_'+tabId), {
@@ -1328,12 +1317,62 @@ DATA.tournaments.forEach((t, idx) => {
     },
     plugins: [valueLabelPlugin]
   });
-  document.querySelectorAll('#filterCatVol_'+tabId+' button').forEach(btn => {
+  // === FILTRO ÚNICO POR SEMESTRE: actualiza KPIs + ambas gráficas + labels ===
+  function fmtMoneyM(v) { return '$' + (v/1e6).toFixed(2) + 'M'; }
+  document.querySelectorAll('#filterSem_'+tabId+' button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#filterCatVol_'+tabId+' button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#filterSem_'+tabId+' button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      chCatVol.data.datasets[0].data = cats.map(c => getCatValue(c, btn.dataset.sem, 'volumen'));
+      const sem = btn.dataset.sem;
+      const isTotal = sem === 'total';
+
+      // Calcular agregados según filtro
+      let revenue, volumen, cortesias, ticket, cortesiaPct, sublabel;
+      if (isTotal) {
+        revenue = t.revenue;
+        volumen = t.volumen_total;
+        cortesias = t.cortesias;
+        ticket = t.ticket_promedio;
+        cortesiaPct = t.cortesias_pct;
+        sublabel = '— Total del torneo';
+      } else {
+        const semData = (t.semestres || []).find(s => s.semestre === sem);
+        revenue = semData ? semData.revenue : 0;
+        volumen = semData ? semData.volumen : 0;
+        cortesias = semData ? semData.cortesias : 0;
+        const pagados = volumen - cortesias;
+        ticket = pagados > 0 ? Math.round(revenue / pagados) : 0;
+        cortesiaPct = volumen > 0 ? Math.round(cortesias/volumen*1000)/10 : 0;
+        sublabel = '— Solo ' + sem;
+      }
+
+      // Actualizar KPI cards
+      document.getElementById('kpiRev_'+tabId).textContent = fmtMoneyM(revenue);
+      document.getElementById('kpiVol_'+tabId).textContent = volumen.toLocaleString('es-MX');
+      document.getElementById('kpiTicket_'+tabId).textContent = '$' + ticket.toLocaleString('es-MX');
+      document.getElementById('kpiCort_'+tabId).textContent = cortesias.toLocaleString('es-MX');
+      document.getElementById('kpiCortSub_'+tabId).textContent = cortesiaPct + '% del volumen';
+
+      // Sublabels: cuando filtras, no mostrar el growth comparativo
+      const revSub = document.getElementById('kpiRevSub_'+tabId);
+      const volSub = document.getElementById('kpiVolSub_'+tabId);
+      if (isTotal) {
+        revSub.textContent = '{rev_growth_str}' || 'Primer torneo del comparativo';
+        volSub.textContent = '{vol_growth_str}' || '—';
+      } else {
+        revSub.textContent = 'Solo ' + sem;
+        volSub.textContent = 'Solo ' + sem;
+      }
+
+      // Actualizar gráficas
+      chCatRev.data.datasets[0].data = cats.map(c => getCatValue(c, sem, 'revenue'));
+      chCatRev.update();
+      chCatVol.data.datasets[0].data = cats.map(c => getCatValue(c, sem, 'volumen'));
       chCatVol.update();
+
+      // Actualizar etiquetas inline en titles de cards
+      document.getElementById('labelCatRev_'+tabId).textContent = sublabel;
+      document.getElementById('labelCatVol_'+tabId).textContent = sublabel;
     });
   });
 
