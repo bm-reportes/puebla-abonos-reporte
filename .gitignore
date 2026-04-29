@@ -1,0 +1,35 @@
+# Data sensible — no subir
+*.xlsx
+*.xls
+*.csv
+data.json
+
+# Node
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Outputs intermedios y QA
+slide-*.jpg
+slide-*.png
+slide-*.pdf
+_qa_*
+*.pdf
+schema_explore.json
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/

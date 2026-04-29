@@ -1,0 +1,16 @@
+{
+  "name": "puebla-abonos-reporte",
+  "version": "1.0.0",
+  "description": "Reporte ejecutivo de abonos — Club Puebla · Boletomóvil",
+  "private": true,
+  "scripts": {
+    "build:html": "python scripts/build_html.py",
+    "build:pptx": "node scripts/create_pptx.js",
+    "process": "python scripts/process.py",
+    "all": "python scripts/process.py && python scripts/build_html.py && node scripts/create_pptx.js"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.1",
+    "pptxgenjs": "^3.12.0"
+  }
+}
